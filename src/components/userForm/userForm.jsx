@@ -16,7 +16,6 @@ class UserForm extends Component {
           signupBtn.parentNode.classList.add("slide-up");
           parent.classList.remove("slide-up");
         }
-        return element;
       });
     });
 
@@ -29,7 +28,6 @@ class UserForm extends Component {
           loginBtn.parentNode.parentNode.classList.add("slide-up");
           parent.classList.remove("slide-up");
         }
-        return element;
       });
     });
   }
