@@ -30,8 +30,8 @@ body {
   left: 0;
   background-repeat: no-repeat;
   background-position: left bottom;
-  background-size: 500px;
-  background-image: url("https://images.unsplash.com/photo-1503602642458-232111445657?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=bf884ad570b50659c5fa2dc2cfb20ecf&auto=format&fit=crop&w=1000&q=100");
+  background-size: 1000px;
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/MdhuWOx/scraping-off-the-early-morning-frost-from-a-car-windscreen-windshield-shot-from-inside-the-car-on-a-sunny-morning_bozgdfat-g_thumbnail-full04.png");
 }
 .form-structor .signup {
   position: absolute;
@@ -126,7 +126,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #fff;
+  background-color: #b6b7b8;
   z-index: 5;
   -webkit-transition: all 0.3s ease;
 }
@@ -136,7 +136,7 @@ body {
   left: 50%;
   top: -20px;
   -webkit-transform: translate(-50%, 0);
-  background-color: #fff;
+  background-color: #b6b7b8;
   width: 200%;
   height: 250px;
   border-radius: 50%;
