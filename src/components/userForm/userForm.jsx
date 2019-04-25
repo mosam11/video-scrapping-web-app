@@ -47,6 +47,8 @@ class UserForm extends Component {
     };
     if (!userName || !userEmail || !userPassword) {
       return message.error("Please Input Data Currectly");
+    } else if (userPassword.length < 5) {
+      return message.error("Password Must Be Atleast 8 Character Long");
     } else {
       return createAccount(userObj);
     }
