@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { database } from "../../Helper/firebase";
 
 class UserForm extends Component {
   componentDidMount() {
