@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { database } from "../../Helper/firebase";
 import uuid from "uuid"; //To generate unique Ids for the user
 import { message } from "antd";
-import { createAccount } from "../../Helper/user";
+import { createAccount, loginUser } from "../../Helper/user";
 
 class UserForm extends Component {
   componentDidMount() {
@@ -51,9 +51,14 @@ class UserForm extends Component {
       return createAccount(userObj);
     }
   };
-  loginUser = () => {
+  loginUserComponent = () => {
     const userEmail = document.getElementById("signInEmail").value;
     const userPassword = document.getElementById("signInPassword").value;
+    if (!userEmail || !userPassword) {
+      return message.error("Please Input Data Currectly");
+    } else {
+      return loginUser(userEmail, userPassword);
+    }
   };
   render() {
     return (
@@ -106,7 +111,9 @@ class UserForm extends Component {
                   id="signInPassword"
                 />
               </div>
-              <button className="submit-btn">Log in</button>
+              <button className="submit-btn" onClick={this.loginUserComponent}>
+                Log in
+              </button>
             </div>
           </div>
         </div>
