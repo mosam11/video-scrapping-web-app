@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class SearchForm extends Component {
   render() {
@@ -19,6 +20,9 @@ class SearchForm extends Component {
             </button>
           </form>
         </div>
+        <Link to="/" style={{ marginTop: "15vh", position: "absolute" }}>
+          Login Page
+        </Link>
       </div>
     );
   }

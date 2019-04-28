@@ -68,3 +68,12 @@ a:hover {
   outline: 0;
   padding: 22px 18px;
 }
+
+@media only screen and (max-width: 400px) {
+  .form__field {
+    width: 100%;
+  }
+  .btn--inside {
+    margin-left: 0px;
+  }
+}
