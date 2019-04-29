@@ -5,6 +5,10 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="container">
+      
+<div class="wrapper">
+  <h1>Video Search App</h1>
+</div>
         <div className="container__item">
           <form className="form">
             <input
