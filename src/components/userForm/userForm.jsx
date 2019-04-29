@@ -3,6 +3,7 @@ import { database } from "../../Helper/firebase";
 import uuid from "uuid"; //To generate unique Ids for the user
 import { message } from "antd";
 import { createAccount, loginUser } from "../../Helper/user";
+import { Link } from "react-router-dom";
 
 class UserForm extends Component {
   componentDidMount() {
@@ -119,6 +120,9 @@ class UserForm extends Component {
             </div>
           </div>
         </div>
+        <Link to="/search" style={{ margin: "33%" }}>
+          Go to Search Page
+        </Link>
       </div>
     );
   }
