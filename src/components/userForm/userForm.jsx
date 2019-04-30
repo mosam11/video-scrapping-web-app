@@ -120,7 +120,7 @@ class UserForm extends Component {
             </div>
           </div>
         </div>
-        <Link to="/search" style={{ margin: "33%" }}>
+        <Link to="/" style={{ margin: "33%" }}>
           Go to Search Page
         </Link>
       </div>

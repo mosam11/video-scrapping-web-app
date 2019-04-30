@@ -7,8 +7,8 @@ export default () => (
   <Router>
     <div>
       {/* <Navbar /> */}
-      <Route exact path="/" component={UserForm} />
-      <Route path="/search" component={SearchForm} />
+      <Route exact path="/" component={SearchForm} />
+      <Route path="/userForm" component={UserForm} />
     </div>
   </Router>
 );
