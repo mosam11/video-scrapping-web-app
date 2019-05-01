@@ -1,9 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { userSignIn } from "../../store/action";
 import { database } from "../../Helper/firebase";
 import uuid from "uuid"; //To generate unique Ids for the user
 import { message } from "antd";
-import { createAccount, loginUser } from "../../Helper/user";
-import { Link } from "react-router-dom";
+import { createAccount } from "../../Helper/user";
 
 class UserForm extends Component {
   componentDidMount() {
@@ -55,12 +57,47 @@ class UserForm extends Component {
     }
   };
   loginUserComponent = () => {
+    let self = this;
     const userEmail = document.getElementById("signInEmail").value;
     const userPassword = document.getElementById("signInPassword").value;
     if (!userEmail || !userPassword) {
       return message.error("Please Input Data Currectly");
     } else {
-      return loginUser(userEmail, userPassword);
+      let users = [],
+        found = false,
+        userFound = false;
+      database
+        .ref("users")
+        .once("value")
+        .then(snapshot => {
+          snapshot.forEach(childSnapshot => {
+            var user = childSnapshot.val();
+            console.log(user);
+            users.push(user);
+          });
+
+          users.forEach(user => {
+            if (
+              user.userEmail === userEmail &&
+              userPassword === user.userPassword
+            ) {
+              found = true;
+              userFound = user;
+            }
+            return;
+          });
+          if (found) {
+            message.success("Login Successfully");
+            self.props.userSignIn(userFound);
+            self.props.history.push("/userInfo");
+          } else {
+            message.error("Sorry Incorrect Data");
+          }
+        })
+        .catch(err => {
+          message.error(err.message);
+          console.log(err);
+        });
     }
   };
   render() {
@@ -128,4 +165,11 @@ class UserForm extends Component {
   }
 }
 
-export default UserForm;
+const mapDispatchToProps = dispatch => ({
+  userSignIn: user => dispatch(userSignIn(user))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(UserForm);
