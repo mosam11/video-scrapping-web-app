@@ -1,5 +1,6 @@
 @import "./components/userForm/userForm.css";
 @import "./components/searchForm/searchForm.css";
+@import "./components/userInfo/userInfo.css";
 body {
   margin: 0;
   padding: 0;
