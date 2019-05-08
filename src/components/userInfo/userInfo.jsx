@@ -1,7 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Popconfirm, message } from "antd";
 
 class UserInfo extends Component {
+  confirm = e => {
+    console.log(e);
+    message.success("Video Deleted Successfully");
+  };
+
+  cancel = e => {
+    console.log(e);
+    message.error("Video Deletion Canceled");
+  };
+
   render() {
     const videos = [
       {
@@ -86,21 +97,28 @@ class UserInfo extends Component {
                     src={video.thumb}
                     alt={video.title}
                   />
-                  <h2>{video.title}</h2>
-                  <p>{video.details}</p>
+                  <h2 className="videoCardTitle">{video.title}</h2>
+                  <p className="videoCardDetail">{video.details}</p>
                   <button
                     type="submit"
                     className="btn btn--primary playBtn videoCardBtn"
                   >
                     Play
                   </button>
-                  
-                  <button
-                    type="submit"
-                    className="btn btn--primary delBtn"
+                  <Popconfirm
+                    title="Are you sure delete this task?"
+                    onConfirm={this.confirm}
+                    onCancel={this.cancel}
+                    okText="Yes"
+                    cancelText="No"
                   >
-                    Delete
-                  </button>
+                    <button
+                      type="submit"
+                      className="btn videoCardBtn btn--primary delBtn"
+                    >
+                      Delete
+                    </button>
+                  </Popconfirm>
                 </div>
               );
             })
