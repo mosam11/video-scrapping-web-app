@@ -1,0 +1,42 @@
+html,
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#userInfoMain {
+  text-align: center;
+  margin-top: -20em;
+}
+#editProfileBtn {
+  margin: 2em 0;
+}
+#videoCardContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  left: 0;
+}
+.videoCard {
+  width: 20em;
+  border: 2px solid #00000014;
+  margin: 0.5em;
+  padding: 1.5em;
+  border-radius: 1em;
+}
+.videoCardImg {
+  width: 15em;
+  height: 10em;
+  border-radius: 0.3em;
+}
+.videoCardBtn {
+  margin: 0.4em;
+}
+.delBtn {
+  background-color: #ec4040d6;
+}
+.delBtn:hover {
+  background-color: #fc0a0af3;
+}
