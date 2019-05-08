@@ -21,7 +21,7 @@ class SearchForm extends Component {
     return (
       <div className="container">
         <div className="wrapper">
-          <h1>Video Search App</h1>
+          <h1>Video Seeker</h1>
         </div>
         <div className="container__item">
           <form className="form" onSubmit={this.onSubmit}>
