@@ -7,13 +7,14 @@ import "./Helper/firebase";
 import * as serviceWorker from "./serviceWorker";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import Particles from "react-particles-js";
 
-
-const AppRenderer = () => ( 
-  <Provider store={store}> 
+const AppRenderer = () => (
+  <Provider store={store}>
     <App />
   </Provider>
 );
+
 
 ReactDOM.render(<AppRenderer />, document.getElementById("root"));
 

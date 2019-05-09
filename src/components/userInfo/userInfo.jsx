@@ -75,7 +75,7 @@ class UserInfo extends Component {
     return (
       <div id="userInfoMain">
         <div id="mainDivTitle">
-          <h1>Wellcome {this.props.user.userName}!</h1>
+          <h1 className="whiteTxt">Wellcome {this.props.user.userName}!</h1>
           <button
             type="submit"
             className="btn btn--primary"
@@ -83,7 +83,7 @@ class UserInfo extends Component {
           >
             Edit Profile Info
           </button>
-          <h2>All Favourite Videos</h2>
+          <h2 className="whiteTxt">All Favourite Videos</h2>
         </div>
         <div id="videoCardContainer">
           {videos.length === 0 ? (

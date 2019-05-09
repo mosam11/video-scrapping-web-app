@@ -1,20 +1,16 @@
-html,
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 #userInfoMain {
   height: 100%;
   width: 100%;
   text-align: center;
-  margin-top: -20em;
+  margin: 3em 0;
+}
+#mainDivTitle {
+  margin: 4em 0;
 }
 #editProfileBtn {
   margin: 2em 0;
 }
 #videoCardContainer {
-  position: absolute;
   display: flex;
   justify-content: center;
   flex-direction: row;
@@ -24,6 +20,7 @@ body {
 .videoCard {
   width: 20em;
   border: 2px solid #00000014;
+  background-color: #ecececab;
   border-radius: 14px 90px 10px 91px;
   -moz-border-radius: 14px 90px 10px 91px;
   -webkit-border-radius: 14px 90px 10px 91px;
