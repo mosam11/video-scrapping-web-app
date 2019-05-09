@@ -41,14 +41,14 @@ class SearchForm extends Component {
         </div>
         <Link
           to="/userForm"
-          style={{ marginTop: "15em", position: "absolute" }}
+          style={{ marginTop: "20em", position: "absolute" }}
         >
           Login Page
         </Link>
         <br />
         <Link
           to="/userInfo"
-          style={{ marginTop: "20em", position: "absolute" }}
+          style={{ marginTop: "22em", position: "absolute" }}
         >
           userInfo Page
         </Link>

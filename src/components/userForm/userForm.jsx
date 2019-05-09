@@ -102,7 +102,7 @@ class UserForm extends Component {
   };
   render() {
     return (
-      <div>
+      <div id="mainUserForm">
         <div className="form-structor">
           <div className="signup">
             <h1 className="form-title" id="signup">
@@ -157,7 +157,7 @@ class UserForm extends Component {
             </div>
           </div>
         </div>
-        <Link to="/" style={{ margin: "33%" }}>
+        <Link to="/" style={{ margin: "2%" }}>
           Go to Search Page
         </Link>
       </div>

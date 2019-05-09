@@ -1,17 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-html,
-body {
-  position: relative;
-  min-height: 100vh;
-  background-color: #e1e8ee;
+#mainUserForm {
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5em;
 }
-
 .form-structor {
   background-color: #222;
   border-radius: 15px;

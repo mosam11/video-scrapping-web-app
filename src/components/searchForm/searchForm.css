@@ -1,11 +1,9 @@
 :root {
-  background: #f5f6fa;
+  background: #ffffff;
   color: #9c9c9c;
   font: 1rem "PT Sans", sans-serif;
 }
 
-html,
-body,
 .container {
   height: 100%;
 }
@@ -23,7 +21,9 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
-
+.container__item {
+  margin-top: 25em;
+}
 .uppercase {
   text-transform: uppercase;
 }
@@ -76,12 +76,17 @@ a:hover {
   border-radius: 35px;
 }
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 600px) {
   .form__field {
     width: 100%;
+    margin: 1em 0;
   }
   .btn--inside {
     margin-left: 0px;
+  }
+  .wrapper h1 {
+    font-size: 3em;
+    line-height: 2.5em;
   }
 }
 .wrapper {
@@ -98,9 +103,10 @@ a:hover {
 }
 .wrapper h1 {
   margin: 0;
-  line-height: 40vh;
+  line-height: 5em;
   font-family: "Montserrat", sans-serif;
-  font-size: 5vw;
+  font-size: 5em;
+  text-align: center;
   background: white;
   color: black;
   mix-blend-mode: lighten;
