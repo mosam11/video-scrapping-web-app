@@ -31,7 +31,7 @@ app.post("/videos", (req, res) => {
   youtube.search.list(
     {
       part: "snippet",
-      q: "cats",
+      q: req.body.keyword,
       maxResults: 10
     },
     function(err, data) {
