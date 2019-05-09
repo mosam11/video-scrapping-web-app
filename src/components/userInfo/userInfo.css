@@ -20,6 +20,7 @@
 .videoCard {
   width: 20em;
   border: 2px solid #00000014;
+  background-color: #ecececab;
   border-radius: 14px 90px 10px 91px;
   -moz-border-radius: 14px 90px 10px 91px;
   -webkit-border-radius: 14px 90px 10px 91px;

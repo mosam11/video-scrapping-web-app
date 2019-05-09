@@ -20,9 +20,7 @@ class SearchForm extends Component {
   render() {
     return (
       <div className="container">
-        <div className="wrapper">
-          <h1>Video Seeker</h1>
-        </div>
+        <h1 className="whiteTxt">Video Seeker</h1>
         <div className="container__item">
           <form className="form" onSubmit={this.onSubmit}>
             <input
