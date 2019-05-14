@@ -23,28 +23,24 @@ class SearchForm extends Component {
         }
       )
       // Call back function to run when server give response to a request
-      .then(
-        // Data that the server responded with
-        response
-         => {
+      .then(response => {
+        // Response is the data that the server responded with
         console.log(response);
       })
-      .catch(
-        // Error if that occured
-        err
-         => {
+      // Error if that occured
+      .catch(err => {
         console.log(err);
       });
   };
   render() {
     return (
       <div className="container">
-      {/* Heading of search bar */}
+        {/* Heading of search bar */}
         <h1 className="whiteTxt">Video Seeker</h1>
         <div className="container__item">
-        {/* Search form that we will submit to search something */}
+          {/* Search form that we will submit to search something */}
           <form className="form" onSubmit={this.onSubmit}>
-          {/* input field in which user type search query  */}
+            {/* input field in which user type search query  */}
             <input
               type="text"
               id="searchField"

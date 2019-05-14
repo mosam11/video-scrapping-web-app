@@ -4,25 +4,20 @@
   font: 1rem "PT Sans", sans-serif;
 }
 
+/* main container */
 .container {
   height: 100%;
-}
-.container h1 {
-  font-size: 5em;
-}
-a {
-  color: inherit;
-}
-a:hover {
-  color: whitesmoke;
-}
-
-.container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+/* setting up the size */
+.container h1 {
+  font-size: 5em;
+}
+
+/* form field */
 .container__item {
   margin-top: 10em;
 }
@@ -30,6 +25,7 @@ a:hover {
   text-transform: uppercase;
 }
 
+/* for button styling */
 .btn {
   display: inline-block;
   background: transparent;
@@ -82,6 +78,7 @@ a:hover {
   color: white;
 }
 
+/* properties for the responsive design */
 @media only screen and (max-width: 600px) {
   .form__field {
     width: 100%;
