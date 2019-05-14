@@ -24,7 +24,8 @@ export const getAllUsersEmail = () => {
   var leadsRef = database.ref("users/"); //accessing database
   return leadsRef.once("value").then(snapshot => {
     snapshot.forEach(function(childSnapshot) {
-      var user = childSnapshot.val();
+      //Performing loop on all the objects
+      var user = childSnapshot.val(); // .val() is uded to extract the actual object
       user = user.userEmail;
       users.push(user);
     });
@@ -35,6 +36,7 @@ export const getAllUsers = () => {
   let users = [];
   var leadsRef = database.ref("users/");
   return leadsRef.once("value").then(snapshot => {
+    //once method get all data only one time
     snapshot.forEach(function(childSnapshot) {
       var user = childSnapshot.val();
       users.push(user);
@@ -57,7 +59,7 @@ export const signInUser = (userEmail, userPassword) => {
         // console.log(user);
         users.push(user);
       });
-
+      // Cheking for match in userName and password
       users.forEach(user => {
         if (
           userEmail === user.userEmail &&
@@ -68,14 +70,16 @@ export const signInUser = (userEmail, userPassword) => {
         }
         return;
       });
+      // On found data display this
       if (found) {
         message.success("Login Successfully");
+        // Returning found user
         return {
-          userFound,
-          found
+          userFound
         };
       } else {
         message.error("Sorry Incorrect Data");
+        // Returning null
         return {
           userFound: null
         };

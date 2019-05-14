@@ -1,4 +1,5 @@
 import React from "react";
+// Importing components to use in the routing
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserForm from "../components/userForm/userForm";
 import SearchForm from "../components/searchForm/searchForm";

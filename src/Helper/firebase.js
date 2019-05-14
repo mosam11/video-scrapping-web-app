@@ -12,7 +12,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-const database = firebase.database();
-const storage = firebase.storage();
+const database = firebase.database(); // Accessing the database
+const storage = firebase.storage(); // Accessing the storage
 
 export { firebase, storage, database }; //exporting database
