@@ -1,9 +1,17 @@
-const express = require("express");
-const app = express();
-const port = 3001;
+const express = require("express"); // Node js library
 
-var bodyParser = require("body-parser");
-const cors = require("cors");
+const app = express(); // Initializing
+
+const port = 3001; // Port on which we run locally
+
+var { google } = require("googleapis"); // importing googleapis library
+
+var bodyParser = require("body-parser"); // For parsing incomming data ina good form
+
+const cors = require("cors"); // To solve cros origin problems
+
+// Api Generated in the browser from google developer
+var YOUTUBE_API_KEY = "AIzaSyBXv3zWJL803UPzgelx1UeCCpu_u5JknM0";
 
 // parse application/x-www-form-urlencoded
 app.use(
@@ -14,26 +22,28 @@ app.use(
 
 // parse application/json
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors()); // Initialising cors
 
-var { google } = require("googleapis");
-
-var YOUTUBE_API_KEY = "AIzaSyBXv3zWJL803UPzgelx1UeCCpu_u5JknM0";
-
+//Initializing Google Youtube API With The API key
 var youtube = google.youtube({
   version: "v3",
   auth: YOUTUBE_API_KEY
 });
 
+// Main route
 app.get("/", (req, res) => res.send("Hello World!"));
+
+// Route to send requests to get the videos from the APIs
 app.post("/videos", (req, res) => {
   //Get videos from youtube
   youtube.search.list(
+    // To get a list of search result
     {
       part: "snippet",
-      q: req.body.keyword,
-      maxResults: 10
+      q: req.body.keyword, // word that we want to search comes here
+      maxResults: 10 // maximun number of search result videos
     },
+    // Call back function when we get the data from the youtube API
     function(err, data) {
       if (err) {
         console.error("Error: " + err);
@@ -43,7 +53,7 @@ app.post("/videos", (req, res) => {
       }
     }
   );
-  //get videos from
 });
 
+//Initializing the server and giving the port where we want to run our server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
