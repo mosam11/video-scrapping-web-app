@@ -42,3 +42,47 @@ export const getAllUsers = () => {
     return users;
   });
 };
+
+export const signInUser = (userEmail, userPassword) => {
+  // Getting data from the database
+  let users = [],
+    found = false,
+    userFound = false;
+  return database
+    .ref("users")
+    .once("value")
+    .then(snapshot => {
+      snapshot.forEach(childSnapshot => {
+        var user = childSnapshot.val();
+        // console.log(user);
+        users.push(user);
+      });
+
+      users.forEach(user => {
+        if (
+          userEmail === user.userEmail &&
+          userPassword === user.userPassword
+        ) {
+          found = true;
+          userFound = user;
+        }
+        return;
+      });
+      if (found) {
+        message.success("Login Successfully");
+        return {
+          userFound,
+          found
+        };
+      } else {
+        message.error("Sorry Incorrect Data");
+        return {
+          userFound: null
+        };
+      }
+    })
+    .catch(err => {
+      message.error(err.message);
+      console.log(err);
+    });
+};
