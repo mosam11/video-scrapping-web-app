@@ -1,13 +1,16 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
+import { connect } from "react-redux"; // To connect our component with the redux
+//PopConfirm for delete confirm and message to give user feedback about the task
 import { Popconfirm, message } from "antd";
 
 class UserInfo extends Component {
+  // This will run if a user confirm in the confirmation of delete button
   confirm = e => {
     console.log(e);
     message.success("Video Deleted Successfully");
   };
 
+  // This will run if a user cancel in the confirmation of delete button
   cancel = e => {
     console.log(e);
     message.error("Video Deletion Canceled");
@@ -15,6 +18,7 @@ class UserInfo extends Component {
 
   render() {
     const videos = [
+      // dummy data for the videos
       {
         thumb:
           "https://media.istockphoto.com/photos/gentoo-penguin-waddling-along-on-a-white-sand-beach-picture-id511366776?k=6&m=511366776&s=612x612&w=0&h=FiyKvGeHCGbVLce6bkW7P7SzgC57V18jUcj0bs9Nv4w=",
@@ -86,6 +90,7 @@ class UserInfo extends Component {
           <h2 className="whiteTxt">All Favourite Videos</h2>
         </div>
         <div id="videoCardContainer">
+          {/* checking whether user has video or not and render them according to that */}
           {videos.length === 0 ? (
             <span>No Video</span>
           ) : (
@@ -105,6 +110,7 @@ class UserInfo extends Component {
                   >
                     Play
                   </button>
+                  {/* Using Popconfirm for delete button */}
                   <Popconfirm
                     title="Are you sure delete this task?"
                     onConfirm={this.confirm}
@@ -112,6 +118,7 @@ class UserInfo extends Component {
                     okText="Yes"
                     cancelText="No"
                   >
+                    {/* button inside the PopConfirm */}
                     <button
                       type="submit"
                       className="btn videoCardBtn btn--primary delBtn"
@@ -128,6 +135,8 @@ class UserInfo extends Component {
     );
   }
 }
+
+//Object tomap state of redux to the props of the component
 
 const mapStateToProps = state => {
   return {
