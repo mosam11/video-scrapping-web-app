@@ -7,7 +7,7 @@
 .container {
   height: 100%;
 }
-.container h1{
+.container h1 {
   font-size: 5em;
 }
 a {
@@ -78,6 +78,7 @@ a:hover {
   border-radius: 35px;
 }
 .whiteTxt {
+  padding-top: 1em;
   color: white;
 }
 
