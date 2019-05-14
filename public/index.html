@@ -94,15 +94,18 @@
         animation: move_wave 15s linear infinite;
       }
       #root {
-        z-index: 3333 !important;
+        z-index: 20 !important;
         position: absolute;
         width: 100%;
+      }
+      .ant-popover {
+        z-index: 444;
+        position: absolute;
       }
     </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
     <div class="waveWrapper waveAnimation">
       <div class="waveWrapperInner bgTop">
         <div
@@ -123,6 +126,7 @@
         ></div>
       </div>
     </div>
+    <div id="root"></div>
 
     <!--
       This HTML file is a template.
