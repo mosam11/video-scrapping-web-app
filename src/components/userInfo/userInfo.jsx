@@ -89,7 +89,7 @@ class UserInfo extends Component {
           </button>
           <h2 className="whiteTxt">All Favourite Videos</h2>
         </div>
-        <div id="videoCardContainer">
+        <div id="videoCardContainer centerBlockItems">
           {/* checking whether user has video or not and render them according to that */}
           {videos.length === 0 ? (
             <span>No Video</span>

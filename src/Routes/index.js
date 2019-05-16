@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import UserForm from "../components/userForm/userForm";
 import SearchForm from "../components/searchForm/searchForm";
 import UserInfo from "../components/userInfo/userInfo";
-import SearchResult from "../components/SearchResult/SearchResult";
+import SearchResult from "../components/searchResult/searchResult";
 
 export default () => (
   <Router>

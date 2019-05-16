@@ -1,0 +1,33 @@
+#searchMain {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.searchResultDiv__item {
+  border: 5px solid #663399d1;
+  background: #76339980;
+  border-radius: 1em;
+  padding: 1em;
+  margin: 5px;
+  transition: 0.3s;
+  width: 20em;
+}
+.searchResultDiv__item:hover {
+  cursor: pointer;
+  background: #663399d1;
+}
+.searchResultDiv__item__img {
+  border-radius: 1em;
+  height: 10em;
+  width: 15em;
+}
