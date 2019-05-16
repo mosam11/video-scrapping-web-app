@@ -1,6 +1,8 @@
 @import "./components/userForm/userForm.css";
 @import "./components/searchForm/searchForm.css";
 @import "./components/userInfo/userInfo.css";
+@import "./components/searchResult/searchResult.css";
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +11,4 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
-
