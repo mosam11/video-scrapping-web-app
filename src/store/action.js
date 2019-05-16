@@ -22,3 +22,16 @@ export const userSignOut = () => {
     type: "SIGNOUT"
   };
 };
+
+export const setSearchVideos = videos => {
+  return {
+    type: "SET_SEARCH",
+    videos
+  };
+};
+
+export const setSearchVideosToDefault = () => {
+  return {
+    type: "REMOVE_SEARCH"
+  };
+};
