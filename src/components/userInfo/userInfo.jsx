@@ -89,7 +89,7 @@ class UserInfo extends Component {
           </button>
           <h2 className="whiteTxt">All Favourite Videos</h2>
         </div>
-        <div id="videoCardContainer centerBlockItems">
+        <div id="videoCardContainer" className="centerBlockItems">
           {/* checking whether user has video or not and render them according to that */}
           {videos.length === 0 ? (
             <span>No Video</span>
@@ -102,8 +102,8 @@ class UserInfo extends Component {
                     src={video.thumb}
                     alt={video.title}
                   />
-                  <h2 className="videoCardTitle">{video.title}</h2>
-                  <p className="videoCardDetail">{video.details}</p>
+                  <h2 className="videoCardTitle whiteTxt">{video.title}</h2>
+                  <p className="videoCardDetail whiteTxt">{video.details}</p>
                   <button
                     type="submit"
                     className="btn btn--primary playBtn videoCardBtn"
