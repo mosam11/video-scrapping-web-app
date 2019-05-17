@@ -90,3 +90,46 @@ export const signInUser = (userEmail, userPassword) => {
       console.log(err);
     });
 };
+
+export const updateName = (newName, userId) => {
+  database
+    .ref(`users/${userId}`)
+    .update({
+      userName: newName
+    })
+    .then(() => {
+      message.success("User Name Updated Successfully"); //On successfull insertion of data
+    })
+    .catch(() => {
+      message.error("Error Occured"); //On error
+    });
+};
+
+export const updatePassword = (newPassword, userId) => {
+  database
+    .ref(`users/${userId}`)
+    .update({
+      userPassword: newPassword
+    })
+    .then(() => {
+      message.success("User Password Updated Successfully"); //On successfull insertion of data
+    })
+    .catch(() => {
+      message.error("Error Occured"); //On error
+    });
+};
+
+export const updatePasswordAndName = (newPassword, newName, userId) => {
+  database
+    .ref(`users/${userId}`)
+    .update({
+      userPassword: newPassword,
+      userName: newName
+    })
+    .then(() => {
+      message.success("User Password and Name Updated Successfully"); //On successfull insertion of data
+    })
+    .catch(() => {
+      message.error("Error Occured"); //On error
+    });
+};

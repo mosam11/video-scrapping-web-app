@@ -75,3 +75,39 @@
   color: #0000008a !important;
   border-color: #0000008a !important;
 }
+
+#editProfileForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  text-align: center;
+  padding: 1em;
+}
+#editProfileForm fieldset {
+  margin: 1em;
+}
+.labelText {
+  display: block;
+  margin: 1em;
+}
+#editProfileForm input {
+  outline: none;
+  text-align: center;
+  border: 5px solid #aa6de82e;
+  width: 15em;
+  border-radius: 15px;
+  transition: 0.3s;
+}
+#editProfileForm input:focus {
+  border: 5px solid #aa6de8;
+}
