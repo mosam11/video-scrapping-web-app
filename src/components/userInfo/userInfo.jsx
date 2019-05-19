@@ -37,7 +37,9 @@ class UserInfo extends Component {
 
     // Checking if a user typed old and new password and if the password matches
     if (userName !== this.props.user.userName && !userOldPassword) {
+      // Updating userName from DB
       updateName(userName, this.props.user.userId);
+      //Updating userName from redux
       self.props.userSignIn({
         ...this.props.user,
         userName
@@ -50,7 +52,13 @@ class UserInfo extends Component {
       userName === this.props.user.userName &&
       userNewPassword.length >= 8
     ) {
+      // Updating password from db
       updatePassword(userNewPassword, this.props.user.userId);
+      //Updating password from redux
+      self.props.userSignIn({
+        ...this.props.user,
+        userPassword: userNewPassword
+      });
       // Only Password Update Here
       self.closeModal(); //To close modal
       // console.log("Password");
@@ -59,10 +67,17 @@ class UserInfo extends Component {
       userName !== this.props.user.userName &&
       userNewPassword
     ) {
-      // Update Password and userName  Here
+      // Update Password and userName  from db
       updatePasswordAndName(userNewPassword, userName, this.props.user.userId);
+      // Update Password and userName  from redux
+
       self.props.userSignIn({
         ...this.props.user,
+        userName
+      });
+      self.props.userSignIn({
+        ...this.props.user,
+        userPassword: userNewPassword,
         userName
       });
       self.closeModal(); //To close modal
