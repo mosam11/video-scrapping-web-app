@@ -1,6 +1,8 @@
 @import "./components/userForm/userForm.css";
 @import "./components/searchForm/searchForm.css";
 @import "./components/userInfo/userInfo.css";
+@import "./components/searchResult/searchResult.css";
+
 body {
   margin: 0;
   padding: 0;
@@ -9,6 +11,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
-
+.centerBlockItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}

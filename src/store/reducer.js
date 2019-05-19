@@ -1,5 +1,7 @@
 import { combineReducers } from "redux";
 
+// Initial state of different variables when the app is reloaded
+
 const initalStateLoading = {
   loading: false
 };
@@ -7,6 +9,12 @@ const initalStateLoading = {
 const initalStateUser = {
   user: false
 };
+
+const initalSearchState = {
+  videos: []
+};
+
+// Reducers to interact with the initial state using a switch statement
 
 const loadingReducer = (state = initalStateLoading, action) => {
   switch (action.type) {
@@ -42,9 +50,29 @@ const userReducer = (state = initalStateUser, action) => {
   }
 };
 
+const searchReducer = (state = initalSearchState, action) => {
+  switch (action.type) {
+    case "SET_SEARCH":
+      return {
+        ...state,
+        videos: action.videos
+      };
+    case "REMOVE_SEARCH":
+      return {
+        ...state,
+        videos: []
+      };
+    default:
+      return state;
+  }
+};
+
+// Combine reducer combine all the reducers in one state
+
 const rootReducer = combineReducers({
   loadingReducer,
-  userReducer
+  userReducer,
+  searchReducer
 });
 
 export default rootReducer;
