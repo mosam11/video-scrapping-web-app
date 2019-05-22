@@ -5,11 +5,12 @@ import UserForm from "../components/userForm/userForm";
 import SearchForm from "../components/searchForm/searchForm";
 import UserInfo from "../components/userInfo/userInfo";
 import SearchResult from "../components/searchResult/searchResult";
+import Navbar from "../components/navbar/navbar";
 
 export default () => (
   <Router>
     <div>
-      {/* <Navbar /> */}
+      <Navbar />
       <Route exact path="/" component={SearchForm} />
       <Route path="/userForm" component={UserForm} />
       <Route path="/userInfo" component={UserInfo} />

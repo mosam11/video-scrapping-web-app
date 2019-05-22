@@ -157,9 +157,6 @@ class UserForm extends Component {
             </div>
           </div>
         </div>
-        <Link to="/" style={{ margin: "2%" }}>
-          Go to Search Page
-        </Link>
       </div>
     );
   }

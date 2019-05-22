@@ -2,6 +2,7 @@
 @import "./components/searchForm/searchForm.css";
 @import "./components/userInfo/userInfo.css";
 @import "./components/searchResult/searchResult.css";
+@import "./components/navbar/navbar.css";
 
 body {
   margin: 0;

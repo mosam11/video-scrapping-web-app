@@ -4,7 +4,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
+  margin: 5em 0;
 }
 .form-structor {
   background-color: #222;
@@ -22,10 +22,10 @@
   right: 0;
   bottom: 0;
   left: 0;
-   background-repeat: no-repeat;
+  background-repeat: no-repeat;
   background-position: left bottom;
   background-size: 1000px;
-  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/MdhuWOx/scraping-off-the-early-morning-frost-from-a-car-windscreen-windshield-shot-from-inside-the-car-on-a-sunny-morning_bozgdfat-g_thumbnail-full04.png"); 
+  background-image: url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/MdhuWOx/scraping-off-the-early-morning-frost-from-a-car-windscreen-windshield-shot-from-inside-the-car-on-a-sunny-morning_bozgdfat-g_thumbnail-full04.png");
 }
 .form-structor .signup {
   position: absolute;
