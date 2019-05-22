@@ -11,7 +11,10 @@ const initalStateUser = {
 };
 
 const initalSearchState = {
-  videos: []
+  videos: {
+    youTube: [],
+    dailyMotion: []
+  }
 };
 
 // Reducers to interact with the initial state using a switch statement
@@ -60,7 +63,10 @@ const searchReducer = (state = initalSearchState, action) => {
     case "REMOVE_SEARCH":
       return {
         ...state,
-        videos: []
+        videos: {
+          youTube: [],
+          dailyMotion: []
+        }
       };
     default:
       return state;

@@ -13,9 +13,10 @@
   flex-wrap: wrap;
   text-align: center;
 }
-#searchMain > h1 {
+.renderResultDiv h1,
+.renderResultDiv h2 {
   font-size: 3em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
 }
 .searchResultDiv__item {
   border: 5px solid #663399d1;
@@ -36,4 +37,7 @@
   border-radius: 1em;
   height: 10em;
   width: 15em;
+}
+.renderResultDiv {
+  margin-top: 1em;
 }
