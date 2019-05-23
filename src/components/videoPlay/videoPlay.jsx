@@ -35,6 +35,11 @@ class VideoPlay extends Component {
       videos: userVideos
     });
   };
+  componentDidMount() {
+    if (this.props.currentVideo.id === "") {
+      this.props.history.push("/");
+    }
+  }
   render() {
     return (
       <div id="mainVideoPlayContainer">
