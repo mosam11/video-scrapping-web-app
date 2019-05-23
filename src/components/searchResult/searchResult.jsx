@@ -17,7 +17,7 @@ class SearchResult extends Component {
         <div className="centerBlockItems">
           {/* Checking if there is any video relating the search from store */}
           {videos.length === 0 ? (
-            <h2 className="whiteTxt">Sorry No Video</h2>
+            <h3>Sorry No Videos</h3>
           ) : (
             videos.map((video, index) => (
               <div

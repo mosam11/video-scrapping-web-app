@@ -2,6 +2,10 @@ import { database } from "./firebase";
 import { message } from "antd";
 
 export const createAccount = userObj => {
+  userObj = {
+    ...userObj,
+    videos: JSON.stringify([])
+  }
   getAllUsersEmail().then(emailArr => {
     if (emailArr.indexOf(userObj.userEmail) === -1) {
       database
