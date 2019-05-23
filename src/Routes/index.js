@@ -7,16 +7,18 @@ import UserInfo from "../components/userInfo/userInfo";
 import SearchResult from "../components/searchResult/searchResult";
 import Navbar from "../components/navbar/navbar";
 import VideoPlay from "../components/videoPlay/videoPlay";
+import PrivateRoute from "./privateRoutes";
+import PublicRoute from "./publicRoutes";
 
 export default () => (
   <Router>
     <div>
       <Navbar />
-      <Route exact path="/" component={SearchForm} />
-      <Route path="/userForm" component={UserForm} />
-      <Route path="/userInfo" component={UserInfo} />
-      <Route path="/results" component={SearchResult} />
-      <Route path="/play" component={VideoPlay} />
+      <PublicRoute exact path="/" component={SearchForm} />
+      <PublicRoute path="/userForm" component={UserForm} />
+      <PrivateRoute path="/userInfo" component={UserInfo} />
+      <PublicRoute path="/results" component={SearchResult} />
+      <PublicRoute path="/play" component={VideoPlay} />
     </div>
   </Router>
 );

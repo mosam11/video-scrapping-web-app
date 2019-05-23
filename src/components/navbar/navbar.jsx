@@ -22,7 +22,7 @@ class Navbar extends Component {
             </Link>
           ) : (
             <Link
-              to="/userForm"
+              to="/"
               onClick={() => {
                 this.props.userSignOut();
                 message.success("User SignOut");
