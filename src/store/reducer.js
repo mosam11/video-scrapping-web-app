@@ -17,6 +17,10 @@ const initalSearchState = {
   }
 };
 
+const initalStateCurrentVideo = {
+  currentVideo: { id: "" }
+};
+
 // Reducers to interact with the initial state using a switch statement
 
 const loadingReducer = (state = initalStateLoading, action) => {
@@ -73,12 +77,24 @@ const searchReducer = (state = initalSearchState, action) => {
   }
 };
 
+const currentVideoReducer = (state = initalStateCurrentVideo, action) => {
+  switch (action.type) {
+    case "SET_CURRENT_VIDEO":
+      return {
+        ...state,
+        currentVideo: action.currentVideo
+      };
+    default:
+      return state;
+  }
+};
 // Combine reducer combine all the reducers in one state
 
 const rootReducer = combineReducers({
   loadingReducer,
   userReducer,
-  searchReducer
+  searchReducer,
+  currentVideoReducer
 });
 
 export default rootReducer;

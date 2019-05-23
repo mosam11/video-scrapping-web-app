@@ -3,6 +3,7 @@
 @import "./components/userInfo/userInfo.css";
 @import "./components/searchResult/searchResult.css";
 @import "./components/navbar/navbar.css";
+@import "./components/videoPlay/videoPlay.css";
 
 body {
   margin: 0;

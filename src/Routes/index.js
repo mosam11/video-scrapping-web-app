@@ -6,6 +6,7 @@ import SearchForm from "../components/searchForm/searchForm";
 import UserInfo from "../components/userInfo/userInfo";
 import SearchResult from "../components/searchResult/searchResult";
 import Navbar from "../components/navbar/navbar";
+import VideoPlay from "../components/videoPlay/videoPlay";
 
 export default () => (
   <Router>
@@ -15,6 +16,7 @@ export default () => (
       <Route path="/userForm" component={UserForm} />
       <Route path="/userInfo" component={UserInfo} />
       <Route path="/results" component={SearchResult} />
+      <Route path="/play" component={VideoPlay} />
     </div>
   </Router>
 );

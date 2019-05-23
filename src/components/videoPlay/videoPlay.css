@@ -1,0 +1,19 @@
+#mainVideoPlayContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#videoPlayerFrame {
+  /* border: 3px solid red; */
+  align-self: center;
+  border-radius: 2em;
+  border: 3px solid #996b8f;
+  padding: 1em;
+  margin: 2em 0 1em 0;
+  height: 70vh;
+  width: 80vw;
+}
+#addFavBtn {
+  align-self: center;
+  width: 15em;
+}

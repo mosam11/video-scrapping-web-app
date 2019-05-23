@@ -35,3 +35,10 @@ export const setSearchVideosToDefault = () => {
     type: "REMOVE_SEARCH"
   };
 };
+
+export const setCurrentVideo = currentVideo => {
+  return {
+    type: "SET_CURRENT_VIDEO",
+    currentVideo
+  };
+};
