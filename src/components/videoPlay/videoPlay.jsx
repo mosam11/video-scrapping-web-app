@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; // To connect our component with the redux
 import { message } from "antd";
-import { addToFavVideo } from "../../Helper/video";
+import { updateUserVideos } from "../../Helper/video";
 import { userSignIn } from "../../store/action"; //to SignIn and setting up user i redux
 
 class VideoPlay extends Component {
@@ -29,7 +29,7 @@ class VideoPlay extends Component {
     }
     userVideos.push(this.props.currentVideo);
     userVideos = JSON.stringify(userVideos);
-    addToFavVideo(this.props.user, userVideos); // To update the db of user
+    updateUserVideos(this.props.user.userId, userVideos); // To update the db of user
     this.props.userSignIn({
       ...this.props.user,
       videos: userVideos

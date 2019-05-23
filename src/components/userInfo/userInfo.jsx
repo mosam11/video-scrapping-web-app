@@ -8,15 +8,21 @@ import {
   updatePasswordAndName
 } from "../../Helper/user"; //Importing update name function
 import { userSignIn } from "../../store/action"; //to SignIn and setting up user i redux
+import { setCurrentVideo } from "../../store/action"; //to SetSearchState in redux
+import { updateUserVideos } from "../../Helper/video";
 
 class UserInfo extends Component {
   state = {
     loading: false,
     visible: false,
     edited: false,
-    user: { userName: "" }
+    user: { userName: "" },
+    videos: []
   };
-
+  setCurrentVideo = videoObj => {
+    this.props.setCurrentVideo(videoObj);
+    this.props.history.push("/play");
+  };
   showModal = () => {
     this.setState({
       visible: true
@@ -101,9 +107,19 @@ class UserInfo extends Component {
     this.setState({ visible: false });
   };
   // This will run if a user confirm in the confirmation of delete button
-  confirm = e => {
-    // console.log(e);
-    message.success("Video Deleted Successfully");
+  confirm = videoObj => {
+    console.log("videoObj", videoObj);
+    let videoId = videoObj.id.videoId ? videoObj.id.videoId : videoObj.id;
+    //Filtering Array
+    let videos = this.state.videos.filter(video => {
+      let thisVideoId = video.id.videoId ? video.id.videoId : video.id;
+      return thisVideoId !== videoId;
+    });
+    this.setState(prevState => ({
+      ...prevState,
+      videos
+    }));
+    updateUserVideos(this.props.user.userId, JSON.stringify(videos)); // To update the db of user
   };
 
   // This will run if a user cancel in the confirmation of delete button
@@ -113,7 +129,8 @@ class UserInfo extends Component {
   };
   componentDidMount() {
     this.setState({
-      user: this.props.user ? this.props.user : { userName: "" }
+      user: this.props.user ? this.props.user : { userName: "" },
+      videos: JSON.parse(this.props.user.videos)
     });
   }
   updateName = () => {
@@ -204,29 +221,40 @@ class UserInfo extends Component {
         </div>
         <div id="videoCardContainer" className="centerBlockItems">
           {/* checking whether user has video or not and render them according to that */}
-          {videos.length === 0 ? (
+          {this.state.videos.length === 0 ? (
             <span>No Video</span>
           ) : (
-            videos.map((video, index) => {
+            this.state.videos.map((video, index) => {
               return (
                 <div className="videoCard" key={index}>
                   <img
                     className="videoCardImg"
-                    src={video.thumb}
+                    src={
+                      video.snippet
+                        ? video.snippet.thumbnails.medium.url
+                        : video.thumbnail_url
+                    }
                     alt={video.title}
                   />
-                  <h2 className="videoCardTitle whiteTxt">{video.title}</h2>
-                  <p className="videoCardDetail whiteTxt">{video.details}</p>
+                  <h2 className="videoCardTitle whiteTxt">
+                    {video.snippet ? video.snippet.title : video.title}
+                  </h2>
+                  <p className="videoCardDetail whiteTxt">
+                    {video.snippet
+                      ? video.snippet.description
+                      : "No Description"}
+                  </p>
                   <button
                     type="submit"
                     className="btn btn--primary playBtn videoCardBtn"
+                    onClick={() => this.setCurrentVideo(video)}
                   >
                     Play
                   </button>
                   {/* Using Popconfirm for delete button */}
                   <Popconfirm
                     title="Are you sure delete this task?"
-                    onConfirm={this.confirm}
+                    onConfirm={() => this.confirm(video)}
                     onCancel={this.cancel}
                     okText="Yes"
                     cancelText="No"
@@ -292,7 +320,8 @@ const mapStateToProps = state => {
 
 // Mapping out userSignIn with the dispatch and adding that in the props of the components
 const mapDispatchToProps = dispatch => ({
-  userSignIn: user => dispatch(userSignIn(user))
+  userSignIn: user => dispatch(userSignIn(user)),
+  setCurrentVideo: currentVideo => dispatch(setCurrentVideo(currentVideo)) // Mapping actions of redux to props
 });
 
 export default connect(
