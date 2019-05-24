@@ -17,10 +17,10 @@ class VideoPlay extends Component {
       dublicate = false, // Check if the video is already there
       userVideos = JSON.parse(this.props.user.videos);
     userVideos.map(video => {
-      let videoId = video.id.videoId
-        ? this.props.currentVideo.id.videoId
-        : video.id;
+      let videoId = video.id.videoId ? video.id.videoId : video.id;
       if (videoId === videoToAddId) {
+        console.log("videoId ", video);
+        console.log("videoToAddId ", videoId);
         dublicate = true;
       }
     });
