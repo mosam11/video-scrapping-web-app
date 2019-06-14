@@ -24,8 +24,10 @@
   border-radius: 1em;
   padding: 1em;
   margin: 5px;
+  overflow: hidden;
+  height: 17em;
   transition: 0.3s;
-  width: 20em;
+  width: 15em;
 }
 .searchResultDiv__item:hover {
   cursor: pointer;
@@ -35,8 +37,8 @@
 }
 .searchResultDiv__item__img {
   border-radius: 1em;
-  height: 10em;
-  width: 15em;
+  height: 6em;
+  width: 10em;
 }
 .renderResultDiv {
   margin-top: 1em;

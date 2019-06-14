@@ -13,7 +13,7 @@ class SearchResult extends Component {
   renderResult = (heading, videos) => {
     return (
       <div className="renderResultDiv">
-        <h2 className={heading === "YouTube" ? "whiteTxt" : ""}>{heading}</h2>
+        {/* <h2 className={heading === "YouTube" ? "whiteTxt" : ""}>{heading}</h2> */}
         <div className="centerBlockItems">
           {/* Checking if there is any video relating the search from store */}
           {videos.length === 0 ? (
@@ -37,9 +37,6 @@ class SearchResult extends Component {
                 <h3 className="whiteTxt">
                   {video.snippet ? video.snippet.title : video.title}
                 </h3>
-                <p className="whiteTxt">
-                  {video.snippet ? video.snippet.description : "No Description"}
-                </p>
               </div>
             ))
           )}
