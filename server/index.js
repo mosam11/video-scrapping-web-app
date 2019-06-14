@@ -37,44 +37,56 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 // Route to send requests to get the videos from the APIs
 app.post("/videos", (req, res) => {
-  //Get videos from youtube
-  youtube.search.list(
-    // To get a list of search result
-    {
-      part: "snippet",
-      q: req.body.keyword, // word that we want to search comes here
-      maxResults: 3 // maximun number of search result videos
-    },
-    // Call back function when we get the data from the youtube API
-    function(err, data) {
-      if (err) {
-        console.error("Error: " + err);
+  let youtubePromise = new Promise((resolve, reject) => {
+    //Get videos from youtube
+    youtube.search.list(
+      // To get a list of search result
+      {
+        part: "snippet",
+        q: req.body.keyword, // word that we want to search comes here
+        maxResults: 3 // maximun number of search result videos
+      },
+      // Call back function when we get the data from the youtube API
+      function(err, data) {
+        if (err) {
+          console.error("Error: " + err);
+          reject(err);
+        }
+        if (data) {
+          resolve(data);
+        }
       }
-      if (data) {
-        // Add search from daily motion
+    );
+  });
 
-        // Make a request for a video from dailymotion with a search string
-        axios
-          .get(
-            `https://api.dailymotion.com/videos?fields=id,thumbnail_url%2Ctitle&country=pk&search=${
-              req.body.keyword
-            }&limit=3`
-          )
-          .then(function(response) {
-            // handle success
-            console.log(response);
-            res.json({
-              youTube: data.data.items,
-              dailyMotion: response.data.list
-            });
-          })
-          .catch(function(error) {
-            // handle error
-            console.log(error);
-          });
-      }
-    }
-  );
+  let dailyMotionPromise = new Promise((resolve, reject) => {
+    // Add search from daily motion
+
+    // Make a request for a video from dailymotion with a search string
+    axios
+      .get(
+        `https://api.dailymotion.com/videos?fields=id,thumbnail_url%2Ctitle&country=pk&search=${
+          req.body.keyword
+        }&limit=3`
+      )
+      .then(function(response) {
+        // handle success
+        resolve(response);
+      })
+      .catch(function(error) {
+        // handle error
+        console.log("error ", error);
+        reject(error);
+      });
+  });
+  Promise.all([youtubePromise, dailyMotionPromise])
+    .then(data => {
+      res.json({
+        youTube: data[0].data.items,
+        dailyMotion: data[1].data.list
+      });
+    })
+    .catch(err => response.json(err));
 });
 
 //Initializing the server and giving the port where we want to run our server
