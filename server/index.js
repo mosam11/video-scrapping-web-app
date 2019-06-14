@@ -44,7 +44,7 @@ app.post("/videos", (req, res) => {
       {
         part: "snippet",
         q: req.body.keyword, // word that we want to search comes here
-        maxResults: 3 // maximun number of search result videos
+        maxResults: 10 // maximun number of search result videos
       },
       // Call back function when we get the data from the youtube API
       function(err, data) {
@@ -67,7 +67,7 @@ app.post("/videos", (req, res) => {
       .get(
         `https://api.dailymotion.com/videos?fields=id,thumbnail_url%2Ctitle&country=pk&search=${
           req.body.keyword
-        }&limit=3`
+        }&limit=10`
       )
       .then(function(response) {
         // handle success
