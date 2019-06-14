@@ -1,5 +1,13 @@
 const express = require("express"); // Node js library
 
+let Vimeo = require("vimeo").Vimeo;
+
+let vimeoClient = new Vimeo(
+  "{client_id:f500201b2460c07e1ef0caf2f661c9461ccc90fa}",
+  "{client_secret:uj3tZNIzRRjzfI3xB8uZTSeHyHB0vQmY7RcMGUnxo/Z3uJhjauXkhWKXOuzmgSuPakKnV7mchBzwF+2f5gWEHeRMZg8iH2U2pxMbQbJQrDjHWWgQu9y7Lgg0ihg/Svrs}",
+  "{access_token:XXXXXXXXXX574e}"
+);
+
 const app = express(); // Initializing
 
 const port = 3001; // Port on which we run locally
@@ -37,6 +45,34 @@ app.get("/", (req, res) => res.send("Hello World!"));
 
 // Route to send requests to get the videos from the APIs
 app.post("/videos", (req, res) => {
+  vimeoClient.request(
+    /*options*/ {
+      // This is the path for the videos contained within the staff picks
+      // channels
+      path: "/videos",
+      // This adds the parameters to request page two, and 10 items per
+      // page
+      query: {
+        page: 2,
+        per_page: 10,
+        fields: "uri,name,description,duration,created_time"
+      }
+    },
+    /*callback*/ function(error, body, status_code, headers) {
+      if (error) {
+        console.log("error");
+        console.log(error);
+      } else {
+        console.log("body");
+        console.log(body);
+      }
+
+      // console.log("status code");
+      // console.log(status_code);
+      // console.log("headers");
+      // console.log(headers);
+    }
+  );
   let youtubePromise = new Promise((resolve, reject) => {
     //Get videos from youtube
     youtube.search.list(
