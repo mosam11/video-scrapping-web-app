@@ -12,8 +12,9 @@ var bodyParser = require("body-parser"); // For parsing incomming data ina good 
 
 const cors = require("cors"); // To solve cros origin problems
 
+
 // Api Generated in the browser from google developer
-var YOUTUBE_API_KEY = "AIzaSyBXv3zWJL803UPzgelx1UeCCpu_u5JknM0";
+var YOUTUBE_API_KEY = "AIzaSyBS90aLhGZxCGnuDpfDdLtKzqRUQW5jyFY";  
 
 // parse application/x-www-form-urlencoded
 app.use(
@@ -34,6 +35,30 @@ var youtube = google.youtube({
 
 // Main route
 app.get("/", (req, res) => res.send("Hello World!"));
+
+// Getting Suggestions
+// app.post("/suggestion", (req, res) => {
+//   youtube.search.list(
+//     // To get a list of search result
+//     {
+//       part: "snippet",
+//       q: req.body.word, // word that we want to search comes here
+//       maxResults: 10 // maximun number of search result videos
+//     },
+//     // Call back function when we get the data from the youtube API
+//     function(err, data) {
+//       if (err) {
+//         console.error("Error: " + err);
+//       }
+//       if (data) {
+//         let result = data.data.items.map(videoObj => {
+//           return videoObj.snippet.title;
+//         });
+//         res.json(result);
+//       }
+//     }
+//   );
+// });
 
 // Route to send requests to get the videos from the APIs
 app.post("/videos", (req, res) => {
@@ -86,7 +111,7 @@ app.post("/videos", (req, res) => {
         dailyMotion: data[1].data.list
       });
     })
-    .catch(err => response.json(err));
+    .catch(err => res.json(err));
 });
 
 //Initializing the server and giving the port where we want to run our server
