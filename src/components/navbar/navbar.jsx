@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux"; // To connect our component with the redux
 import { Link } from "react-router-dom";
-import logo from "../../assets/logo.svg";
+import logo from "../../assets/logo.png";
 import { userSignOut } from "../../store/action";
 import { message } from "antd";
 
@@ -10,7 +10,7 @@ class Navbar extends Component {
     return (
       <div id="mainNavContainer">
         <Link to="/">
-          <img src={logo} alt="logo" id="logoImg" />
+          <img src="https://image.flaticon.com/icons/svg/272/272365.svg" alt="logo" id="logoImg" />
         </Link>
         <div id="navLinkContainer">
           <Link to="/" className="navItem">

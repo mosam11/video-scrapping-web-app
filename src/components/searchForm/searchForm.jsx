@@ -6,6 +6,29 @@ import axios from "axios"; // Library to send requests to the server
 
 // Creating the search component
 class SearchForm extends Component {
+  state = {
+    suggestions: []
+  };
+
+  // Getting Suggestion from google
+  getSuggestions = e => {
+    // Sending request to backend for words
+    // axios
+    //   .post(`http://localhost:3001/suggestion`, {
+    //     word: e.target.value
+    //   })
+    //   // Call back function to run when server give response to a request
+    //   .then(response => {
+    //     // Response is the data that the server responded with
+    //     this.setState({
+    //       suggestions: response.data
+    //     });
+    //   })
+    //   // Error if that occured
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
+  };
   // Function that will run when we press the button to search
   onSubmit = e => {
     e.preventDefault(); // To prevent form from reloading the page
@@ -55,10 +78,21 @@ class SearchForm extends Component {
             {/* input field in which user type search query  */}
             <input
               type="text"
+              list="textSuggest"
               id="searchField"
               className="form__field"
+              maxlength={25}
+              onChange={this.getSuggestions}
               placeholder="Enter Something To Search"
             />
+
+            <datalist id="textSuggest">
+              {this.state.suggestions.length !== 0
+                ? this.state.suggestions.map(item => (
+                    <option key={item} value={item.split("-")[0]} />
+                  ))
+                : ""}
+            </datalist>
             {/* Button that will submit the form */}
             <button
               type="submit"

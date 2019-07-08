@@ -1,5 +1,6 @@
 const express = require("express"); // Node js library
 
+
 const app = express(); // Initializing the library
 
 const port = 3001; // Port on which we run server locally
@@ -34,6 +35,30 @@ var youtube = google.youtube({
 
 // Main route
 app.get("/", (req, res) => res.send("Hello World!"));
+
+// Getting Suggestions
+// app.post("/suggestion", (req, res) => {
+//   youtube.search.list(
+//     // To get a list of search result
+//     {
+//       part: "snippet",
+//       q: req.body.word, // word that we want to search comes here
+//       maxResults: 10 // maximun number of search result videos
+//     },
+//     // Call back function when we get the data from the youtube API
+//     function(err, data) {
+//       if (err) {
+//         console.error("Error: " + err);
+//       }
+//       if (data) {
+//         let result = data.data.items.map(videoObj => {
+//           return videoObj.snippet.title;
+//         });
+//         res.json(result);
+//       }
+//     }
+//   );
+// });
 
 // Route to send requests to get the videos from the APIs
 app.post("/videos", (req, res) => {
@@ -75,7 +100,7 @@ app.post("/videos", (req, res) => {
       })
       .catch(function(error) {
         // handle error
-        console.log("error ", error);
+        console.log("error from dailymotion", error);
         reject(error);
       });
   });
@@ -86,7 +111,7 @@ app.post("/videos", (req, res) => {
         dailyMotion: data[1].data.list
       });
     })
-    .catch(err => response.json(err));
+    .catch(err => res.json(err));
 });
 
 //Initializing the server and giving the port where we want to run our server
