@@ -1,5 +1,6 @@
 const express = require("express"); // Node js library
 
+const app = express();
 
 const path = require("path");
 
@@ -113,9 +114,9 @@ app.post("/videos", (req, res) => {
 
 // To serve html and css
 // app.use(express.static('../public'));
-app.use(express.static(path.join(__dirname, "../public")));
+app.use(express.static(path.join(__dirname, "../build")));
 app.get("/*", function(req, res) {
-  res.sendFile(path.join(__dirname, "../public/index.html"), function(err) {
+  res.sendFile(path.join(__dirname, "../build/index.html"), function(err) {
     if (err) {
       res.status(500).send(err);
     }
@@ -123,4 +124,3 @@ app.get("/*", function(req, res) {
 });
 //Initializing the server and giving the port where we want to run our server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-
