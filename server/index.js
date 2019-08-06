@@ -1,6 +1,5 @@
 const express = require("express"); // Node js library
 
-const app = express(); // Initializing
 
 const path = require("path");
 
@@ -8,14 +7,14 @@ const port = process.env.PORT || 3001; // Port on which we run locally
 
 var { google } = require("googleapis"); // importing googleapis library
 
-const axios = require("axios"); // To send http requests
+const axios = require("axios"); // Library to send http requests
 
-var bodyParser = require("body-parser"); // For parsing incomming data ina good form
+var bodyParser = require("body-parser"); // To convert incomming data in a user friendly form
 
 const cors = require("cors"); // To solve cros origin problems
 
-// Api Generated in the browser from google developer
-var YOUTUBE_API_KEY = "AIzaSyBS90aLhGZxCGnuDpfDdLtKzqRUQW5jyFY";
+// Key to access google api services
+var YOUTUBE_API_KEY = "AIzaSyBXv3zWJL803UPzgelx1UeCCpu_u5JknM0";
 
 // parse application/x-www-form-urlencoded
 app.use(
@@ -124,3 +123,4 @@ app.get("/*", function(req, res) {
 });
 //Initializing the server and giving the port where we want to run our server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+

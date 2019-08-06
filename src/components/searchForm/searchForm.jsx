@@ -34,6 +34,7 @@ class SearchForm extends Component {
     e.preventDefault(); // To prevent form from reloading the page
 
     //Setting a reference of component
+    // This means searchForm component
     let self = this;
 
     // Getting value of the search input
@@ -55,7 +56,7 @@ class SearchForm extends Component {
         // Response is the data that the server responded with
         console.log(response);
 
-        //Firing up the action method
+        // Seting the videos in the frontend database
         self.props.setSearchVideos(response.data);
 
         //Changing Route to search result
@@ -96,6 +97,7 @@ class SearchForm extends Component {
             <button
               type="submit"
               className="btn btn--primary btn--inside uppercase"
+              id="myBtn"
             >
               Search
             </button>
