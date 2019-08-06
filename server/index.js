@@ -2,7 +2,9 @@ const express = require("express"); // Node js library
 
 const app = express(); // Initializing
 
-const port = 3001; // Port on which we run locally
+const path = require("path");
+
+const port = process.env.PORT || 3001; // Port on which we run locally
 
 var { google } = require("googleapis"); // importing googleapis library
 
@@ -12,9 +14,8 @@ var bodyParser = require("body-parser"); // For parsing incomming data ina good 
 
 const cors = require("cors"); // To solve cros origin problems
 
-
 // Api Generated in the browser from google developer
-var YOUTUBE_API_KEY = "AIzaSyBS90aLhGZxCGnuDpfDdLtKzqRUQW5jyFY";  
+var YOUTUBE_API_KEY = "AIzaSyBS90aLhGZxCGnuDpfDdLtKzqRUQW5jyFY";
 
 // parse application/x-www-form-urlencoded
 app.use(
@@ -32,9 +33,6 @@ var youtube = google.youtube({
   version: "v3",
   auth: YOUTUBE_API_KEY
 });
-
-// Main route
-app.get("/", (req, res) => res.send("Hello World!"));
 
 // Getting Suggestions
 // app.post("/suggestion", (req, res) => {
@@ -114,5 +112,15 @@ app.post("/videos", (req, res) => {
     .catch(err => res.json(err));
 });
 
+// To serve html and css
+// app.use(express.static('../public'));
+app.use(express.static(path.join(__dirname, "../public")));
+app.get("/*", function(req, res) {
+  res.sendFile(path.join(__dirname, "../public/index.html"), function(err) {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 //Initializing the server and giving the port where we want to run our server
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -14,7 +14,7 @@ class SearchForm extends Component {
   getSuggestions = e => {
     // Sending request to backend for words
     // axios
-    //   .post(`http://localhost:3001/suggestion`, {
+    //   .post(`/suggestion`, {
     //     word: e.target.value
     //   })
     //   // Call back function to run when server give response to a request
@@ -43,7 +43,7 @@ class SearchForm extends Component {
     axios
       .post(
         // Configuring the route on which we want to send request
-        "http://localhost:3001/videos",
+        "/videos",
 
         // Sending keyword that we want to search
         {
