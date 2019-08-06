@@ -101,3 +101,13 @@ a:hover {
     margin-left: 0px;
   }
 }
+
+@media only screen and (max-width: 400px) {
+  #hImp {
+    font-size: 3em;
+    text-align: center;
+  }
+  #myBtn {
+    display: flex;
+  }
+}

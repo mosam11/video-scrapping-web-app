@@ -71,7 +71,9 @@ class SearchForm extends Component {
     return (
       <div className="container">
         {/* Heading of search bar */}
-        <h1 className="whiteTxt">Video Seeker</h1>
+        <h1 id="hImp" className="whiteTxt">
+          Video Seeker
+        </h1>
         <div className="container__item">
           {/* Search form that we will submit to search something */}
           <form className="form" onSubmit={this.onSubmit}>
